@@ -1,0 +1,235 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset2 Wingdings;}{\f2\fnil Calibri;}{\f3\fnil\fcharset1 Cambria Math;}}
+{\*\generator Riched20 10.0.22621}{\*\mmathPr\mmathFont3\mwrapIndent1440 }\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\ul\b\f0\fs28\lang9 Module: 14 Identity with Windows Server\par
+\ulnone\b0\fs22 Active directory domain services\par
+1. what is domain controller?\par
+ans -> A domain controller is a type of server that processes requests for authentication from users within a computer domain.\par
+2. describe forest, domain, tree, schema, OU, container, site, subnet, \par
+ans -> A forest is a set of one or more domain trees that do not form a contiguous namespace.\par
+        ->A domain is group of nodes, workstations, devices and other servers, etc that are meant to share resources and data.\tab\tab\par
+       ->A domain tree is made up of several domains that share a common schema and configuration, forming a contiguous namespace.\par
+       ->A schema is the definition of attributes and classes that are part of a distributed directory and is similar to fields and tables in a database.\par
+      ->An OU is a container within a Microsoft Windows Active Directory (AD) domain that can hold users, groups and computers.\par
+      ->Containers are a technology for packaging and running Windows and Linux applications across diverse environments on-premises and in the cloud.\par
+     ->site is the aggregate of all well-connected subnets.\par
+     ->the practice of logically subdividing a network address space by extending the string of 1-bits used in the subnet mask of a network.\par
+3. partition, trust relationship\par
+ans -> occurs when the CPUs on a server are separated into individual sections where each section acts as a separate system.\par
+     ->an administration and communication link between two domains.\par
+4. what is active directory?\par
+ans -> Active Directory (AD) is a database and set of services that connect users with the network resources they need to get their work done.\par
+5. what is global catalog server? \par
+ans -> a feature of Active Directory (AD) that allows a domain controller (DC) to provide information on any object in the forest, regardless of whether the object is a member of its domain. \par
+6. what is ADC AND RODC?\par
+ans -> ADC converts a continuous-time and continuous-amplitude analog signal to a discrete-time and discrete-amplitude digital signal.\par
+     ->A read-only domain controller (RODC) is a domain controller that hosts an Active Directory database's read-only partitions.\par
+7. what is operation master role?\par
+ans -> assigned automatically when the first domain controller in a given domain is created.\par
+8. type of operation master role and describe all role.\par
+ans -> Schema, Domain Naming, Primary Domain Controller (PDC) emulator, Relative Identifier (RID), and Infrastructure.\par
+9. difference between transferring and seizing role \par
+ans -> Transferring makes the old DC know that it does not own the role(s) any more. If the DC is broken (e. g. hardware defect) and will never come back again, then you can seize the role on a remaining DC.\par
+10. password policy\par
+ans -> \tab Step 1: Press \ldblquote Win\rdblquote  + \ldblquote R\rdblquote  key to open \ldblquote Run\rdblquote  window. ...\par
+\tab Step 2: After you open \ldblquote Local Security Policy\rdblquote , select them in order: \ldblquote Security \tab Settings\rdblquote  > \tab\ldblquote Account Policies\rdblquote  > \ldblquote Password Policy.\par
+11. what id profile and type of profile?\par
+ans -> A profile-type defines a set of properties, also referred to as a schema, that are inherent to all profiles of that type.\par
+12. group nesting and scope, type of group\par
+ans -> The scope of an AD group determines both where the group can be applied in the forest or domain and who can be a member of a group.\f1\par
+\'b7\f0  Practical\par
+1. install ADDS and create a new forest \par
+ans -> install role ADDS from "add role or feature".\par
+2. give membership of pc to domain\par
+ans -> Under Member of, click Domain, type the name of the domain that you wish this computer to join, and then click OK.\par
+3. create a ADC\par
+ans -> To promote this computer as an ADC select the option \ldblquote Add a domain controller to an existing domain\rdblquote .\par
+4. create RODC and password replication \par
+ans -> The Denied RODC Password Replication Group is used to specify users and groups whose passwords cannot be cached on RODCs\par
+5. create a new site\par
+ans -> Start IIS Manager. ...\par
+       ->In the Connections pane, right-click the Sites node in the tree view, and then click Add  Web Site.\par
+      ->In the Add Web Site dialog box, type a friendly name for your Web site in the Web site name box.\par
+6. create a new child domain\par
+ans -> Done in LAB\par
+7. create a new tree\par
+ans -> Install Windows Server. Obtain an installation disc or use the Windows Server ISO file to install the operating system.\par
+-> Configure the Server. ...\par
+-> Create a New Forest. ...\par
+-> Create a user account. ...\par
+-> Create a trust relationship. ...\par
+-> Create a Group Policy Object. ...\par
+-> Configure DNS. ...\par
+-> Create new domains.\par
+8. create a new user with GUI and CLI \par
+ans -> The User section of the GUI page lists all the existing users and the associated user groups. Click Create User. The Create User window appears. Type the name of the new user in the Name field.\par
+-> Use the create-user command to create the user. Use the add-user-to-group command to add the user to the group.\par
+9. create roaming profile\par
+ans -> Prerequisites.\par
+Step 1: Enable the use of separate profile versions.\par
+Step 2: Create a roaming user profiles security group.\par
+Step 3: Create a file share for roaming user profiles.\par
+Step 4: Optionally create a GPO for roaming user profiles.\par
+Step 5: Optionally set up roaming user profiles on user accounts.\par
+10. create OU and give delegation \par
+ans -> On the Manage menu, click create Server Group.\par
+ In the Server group name text box, type a friendly name for your server group, such as Accounting Servers. \par
+add servers to the selected list from the server pool, or add other servers to the group by using the active directory, DNS, or import tabs.\par
+11. create a group\par
+ans -> On the Manage menu, click create Server Group.\par
+ In the Server group name text box, type a friendly name for your server group, such as Accounting Servers. \par
+add servers to the selected list from the server pool, or add other servers to the group by using the active directory, DNS, or import tabs.\par
+12. transfer roles\f2\emdash PDC, RID , schema master\par
+\f0 ans -> RID -> Open the Active Directory Users and Computers console, then right-click on the domain and click on operations masters.\par
+ schema master -> Transfer the Schema Master Role \'b7 Click Start, click Run, type mmc in the Open box, and then click OK.\f2\par
+13. Doamin name master\emdash\par
+\f0 ans -> A domain controller that is in charge of adding new domains and removing unneeded ones from the forest.\f2\par
+14. GUI and ntdsutil\par
+\f0 ans -> Done in LAB\f2\par
+15. IFM\par
+\f0 ans -> The IFM method uses the data in the installation media to install AD DS\f2\par
+Advance feature\par
+1. describe account policy\par
+\f0 ans -> A user account policy is a document which outlines the requirements for requesting and maintaining an account on computer systems or networks, typically within an organization.\f2\par
+2. describe account lockout policy \par
+\f0 ans -> The Account lockout threshold policy setting determines the number of failed sign-in attempts that will cause a user account to be locked.\f2\line 3. what is trust relationship\par
+\f0 ans -> Trust relationships are an administration and communication link between two domains.\f2\par
+4. type of trust relationship describe all trust \par
+\f0 ans -> Active Directory trusts are communication bridges established between one domain and another domain in the Active Directory (AD) network.\f2\par
+5. what is site and subnet ?\par
+\f0 ans -> A site is made up of one or more Internet Protocol (IP) subnets that are linked by high-speed and reliable connections.\f1\par
+\'b7\f0  Practical\par
+1. manage active directory offline\par
+ans -> I am trying to open 'active directory user & computers'. but showing ... In DNS this server is offline. AD and domain are in same server.\par
+2. restore object of active directory from AD Recycle bin\par
+ans -> STEP 1 -> Prerequisite: Enable the Recycle Bin in Active Directory. Open the Server Manager management console -> Click Tools -> Active Directory Administrative Center. ...\par
+STEP 2 ->Restore an Object with the Active Directory Administrative Center (ADUC) ...\par
+STEP 3 ->Restore an Object using PowerShell.\par
+3. backup active directory\par
+ans -> step 1 ->Install Windows Server Backup program from the Server Manager dashboard.\par
+step 2 -> Open Windows Server Backup and Click the 'Local Backup' link on the left tree view.\par
+step 3 ->In the Local Backup wizard, choose 'Full server (recommended)' option.\par
+4. manage active directory replication---repadmin DcDiag \par
+ans -> The first command you should use is replsummary. This command will quickly show you the overall replication health.\par
+5. create multiplae UPN suffix multidomain enviourment \par
+ans -> TOOLS > Active Directory Domains and Trusts > Active Directory Domains and Trusts > Active Directory Domains and Trusts > Properties > UPN Suffixes > Add > Apply > ok.\par
+6. configure trust between forest check with login\par
+ans -> Done in LAB\par
+7. configure ADDS sites and subnet\par
+ans ->step 1 -> In the Active Directory Sites and Services MMC, right-click Inter-Site Transports > IP and then click New Site Link.\par
+step 1 -> In the New Object \f2\endash  subnet window, enter a desired name for the link, select both SiteA and SiteB, and click add.\par
+\f0 step 1 -> \f2 Click OK to continue.\f0\par
+Group Policy\par
+1. what is group policy?\par
+ans -> GPO  is a group of settings that are created using the Microsoft Management Console (MMC) Group Policy Editor.\par
+2. what is default policy? Default Domain and domain controller\par
+ans ->  A default GPO that is automatically created and linked to the domain whenever a server is promoted to a domain controller.\par
+3. what is user configuration and computer configuration\par
+ans -> The settings under Computer Configuration control how the computer is configured. The settings under User Configuration control the user's log-on session.\par
+4. what is GPO?\par
+ans -> A local Group Policy Objectrefers to the collection of group policy settings that only apply to the local computer and to the users who log on to that computer.\par
+5. define software setting, windows setting, and administrative templates\par
+ans -> software setting -> A software control panel that enables the user to configure the appearance or actions in an application, operating system or the hardware.\par
+window setting -> Windows Settings (formerly PC Settings), or simply Settings app, is a component of Microsoft Windows.\par
+administrative templates -> The Group Policy administrative templates define the registry settings that administrators can use to manage specific applications.\par
+6. link GPO\par
+ans -> step 1 ->  Logon to the domain controller as an administrator.\par
+step 2 -> Start \f3\u8594?\f0  Administrative tools \f3\u8594?\f0  Group policy management console.\par
+\lang9 step 3 -> Navigate to the desired OU, to which you want to link a GPO.\par
+step 4 -> Right click on this OU and select "Link an existing GPO" .\par
+step 5 -> In the "Select GPO" dialog under Group Policy Objects, select the GPO you want to link and click OK.\par
+7. delegation GPO management \par
+ans -> STEP 1 -> Create GPOs in a domain.\par
+STEP 2 -> Set permissions on a GPO.\par
+STEP 3 -> Set policy-related permissions on site, domain or organizational unit.\par
+\tab STEP 3.1 -> Link GPOs to a given site, domain or organizational unit.\par
+
+\pard\li720\sa200\sl276\slmult1 STEP 3.2 -> Perform Group Policy Modeling analyses on a given domain or organizational unit (but not on a site).\par
+STEP 3.3 -> Read Group Policy Results data for objects in a given domain or organizational unit (but not on a site).\par
+
+\pard\sa200\sl276\slmult1 STEP 4 -> Create WMI filters in a domain.\par
+STEP 5 -> Set permissions on a WMI filter.\par
+8. inheritance policy\par
+ans -> Both can inherit the total property if there are no children, relatives or distant kin.\par
+9. filtering\par
+ans -> Server-side filters are the types of filter checks that exist on the server.\par
+10. script, templates\par
+ans -> Script-server is a Web UI for scripts. As an administrator, you add your existing scripts into Script server and other users would be able to execute them via a web interface. The UI is very straightforward and can be used by non-tech people.\par
+A server template is used to define the configuration settings for a new application server.\f1\par
+\'b7\f0  Practical\par
+1. backup restore import and copy GPO \par
+ans -> Done in LAB\par
+2. force group policy command\par
+ans -> command is -> "gpupdate /force"\par
+3. check group policy settings \par
+ans ->  Management Console (GPMC), use the Group Policy Search tool.\par
+4. configure folder redirection\par
+ans -> Step 1: Create a folder redirection security group. ...\par
+Step 2: Create a file share for redirected folders. ...\par
+Step 3: Precreate folders for new users on servers that also host Remote Desktop Services. ...\par
+Step 4: Create a GPO for Folder Redirection. ...\par
+Step 5: Configure the Group Policy settings for Folder Redirection and Offline Files.\par
+5. software installation ---assign and publish \par
+ans -> Done in LAB\par
+6. drive map through policy\par
+ans -> STEP 1: Create A GPO. Log on to a Domain Controller. ...\par
+STEP 2: Link the GPO to an Active Directory Container/Organization Unit. ...\par
+STEP 3: Publish the Shared Folder. ...\par
+STEP 4: Configure Map Network Drive Using Group Policy.\par
+Certification services\par
+1. purpose of certification\par
+ans -> The purpose of certification is to demonstrate that specified requirements are met.\par
+2. certificate service and its role service \f2\endash certificate authority, certificate enrolment policy\f0\lang16393  \f2\lang9 web service\par
+\f0 ans -> Done in LAB \f2\par
+3. standalone v/s enterprise CA \par
+\f0 ans -> Standalone CAs are easier to set up and manage, but they lack the security and scalability of an Enterprise CA.\f2\par
+4. root CA and subordinate CA\par
+\f0 ans -> The root CA is self-signed and signs all subordinate CAs immediately below it.\f2\par
+5. describe certificate templates and how to use it\par
+\f0 ans -> Certificate templates define the format and content of certificates issued by enterprise certificate authorities.\f1\par
+\'b7\f0  Practical\par
+1. install certiface services ---certifacte authority and web enrolment\par
+ans -> Done in LAB\par
+2. issue certificate through web enrolment and make secure web site\par
+ans -> Done in LAB\par
+3. self-signed certificate\par
+ans -> A self-signed TLS/SSL certificate is not signed by a publicly trusted certificate authority (CA) but instead by the developer or company that is responsible for the website\par
+4. mange certificate---using template and issue certificate for computer\par
+ans -> Done in LAB\par
+5. backup CA\par
+ans ->  Manual backup of certificate authority server can be performed through the CA console.\par
+ADFS\par
+1. what is federation services \par
+ans -> Federation Services is a Microsoft product that provides users with single sign-on (SSO) access to systems incapable of using IWA via AD.\par
+2. ADFS service component \par
+ans -> Active Directory. This is where ADFS's identity information gets stored. ...\par
+-> Federation server. It manages federated trusts between business partners by issuing security tokens. ...\par
+-> Federation server proxy. ...\par
+-> ADFS web server.\par
+3. ADFS requirement\par
+ans ->  AD FS requires a full writable Domain Controller to function as opposed to a Read-Only Domain Controller.\par
+4. multifactor authentication \par
+ans -> Multi-factor authentication (MFA) is a multi-step account login process that requires users to enter more information than just a password.\par
+5. web application proxy \par
+ans -> The Web Application Proxy is a role service in Windows Server Remote Access.\f1\par
+\'b7\f0  Practical\par
+1. Install ADFS service and configure between two trusted organizations (relay party trust)\par
+ans -> Done in LAB\par
+2. multifactor authentication\par
+ans -> Multi-factor authentication (MFA) is a multi-step account login process that requires users to enter more information than just a password.\par
+ADRMS\par
+1. what is ADRMS\par
+ans -> AD RMS allows individuals and administrators through IRM policies to specify access permissions to documents, workbooks, and presentations.\par
+2. how to secure data and type of security \par
+ans -> Back up your data. ...\par
+Use strong passwords and multi-factor authentication. ...\par
+Be aware of your surroundings. ...\par
+Be wary of suspicious emails. ...\par
+Install anti-virus and malware protection. ...\par
+Protect your device when it's unattended.\par
+3 what is service account\par
+ans -> Conceptual and lifecycle information about IAM service accounts.\f1\par
+\'b7\f0  Practical\par
+1. install ADRMS and secure data (different security apply)\par
+ans -> AD RMS allows individuals and administrators through IRM policies to specify access permissions to documents, workbooks, and presentations.\par
+}
+ 
